@@ -1,0 +1,347 @@
+2024-07-17 15:03:00.6069 Info Message Template Auto Format enabled
+2024-07-17 15:03:00.6313 Info Loading assembly: NLog.Mongo
+2024-07-17 15:03:00.6733 Info Adding target MongoTarget(Name=logfile)
+2024-07-17 15:03:00.6936 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/app/bin/Debug/net6.0/nlog.config
+2024-07-17 15:03:01.1184 Info Connecting to MongoDB collection geral in database logs
+2024-07-17 15:03:01.3170 Error Error when writing to MongoDB MongoDB.Driver.MongoCommandException: Command insert failed: command insert requires authentication.
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingCommandMessageWireProtocol`1.ProcessResponse(ConnectionId connectionId, CommandMessage responseMessage)
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingCommandMessageWireProtocol`1.Execute(IConnection connection, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.WireProtocol.CommandWireProtocol`1.Execute(IConnection connection, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.Server.ServerChannel.ExecuteProtocol[TResult](IWireProtocol`1 protocol, ICoreSession session, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.Server.ServerChannel.Command[TResult](ICoreSession session, ReadPreference readPreference, DatabaseNamespace databaseNamespace, BsonDocument command, IEnumerable`1 commandPayloads, IElementNameValidator commandValidator, BsonDocument additionalOptions, Action`1 postWriteAction, CommandResponseHandling responseHandling, IBsonSerializer`1 resultSerializer, MessageEncoderSettings messageEncoderSettings, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.RetryableWriteCommandOperationBase.ExecuteAttempt(RetryableWriteContext context, Int32 attempt, Nullable`1 transactionNumber, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.RetryableWriteOperationExecutor.Execute[TResult](IRetryableWriteOperation`1 operation, RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.ExecuteBatch(RetryableWriteContext context, Batch batch, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.ExecuteBatches(RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.Execute(RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkMixedWriteOperation.ExecuteBatch(RetryableWriteContext context, Batch batch, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkMixedWriteOperation.Execute(IWriteBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteWriteOperation[TResult](IWriteBinding binding, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteWriteOperation[TResult](IClientSessionHandle session, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IClientSessionHandle session, IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.<>c__DisplayClass28_0.<BulkWrite>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+2024-07-17 15:03:01.3170 Error MongoTarget(Name=logfile): Exception in Write Exception: MongoDB.Driver.MongoCommandException: Command insert failed: command insert requires authentication.
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingCommandMessageWireProtocol`1.ProcessResponse(ConnectionId connectionId, CommandMessage responseMessage)
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingCommandMessageWireProtocol`1.Execute(IConnection connection, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.WireProtocol.CommandWireProtocol`1.Execute(IConnection connection, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.Server.ServerChannel.ExecuteProtocol[TResult](IWireProtocol`1 protocol, ICoreSession session, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.Server.ServerChannel.Command[TResult](ICoreSession session, ReadPreference readPreference, DatabaseNamespace databaseNamespace, BsonDocument command, IEnumerable`1 commandPayloads, IElementNameValidator commandValidator, BsonDocument additionalOptions, Action`1 postWriteAction, CommandResponseHandling responseHandling, IBsonSerializer`1 resultSerializer, MessageEncoderSettings messageEncoderSettings, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.RetryableWriteCommandOperationBase.ExecuteAttempt(RetryableWriteContext context, Int32 attempt, Nullable`1 transactionNumber, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.RetryableWriteOperationExecutor.Execute[TResult](IRetryableWriteOperation`1 operation, RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.ExecuteBatch(RetryableWriteContext context, Batch batch, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.ExecuteBatches(RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkUnmixedWriteOperationBase`1.Execute(RetryableWriteContext context, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkMixedWriteOperation.ExecuteBatch(RetryableWriteContext context, Batch batch, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.BulkMixedWriteOperation.Execute(IWriteBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteWriteOperation[TResult](IWriteBinding binding, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteWriteOperation[TResult](IClientSessionHandle session, IWriteOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IClientSessionHandle session, IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.<>c__DisplayClass28_0.<BulkWrite>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+   at NLog.Targets.Target.Write(AsyncLogEventInfo logEvent)
+2024-07-17 15:04:09.1407 Info Shutdown() called. Logger closing...
+2024-07-17 15:04:09.1407 Info Closing old configuration.
+2024-07-17 15:04:09.1480 Info Logger has been closed down.
+2024-07-17 15:04:09.1480 Info AppDomain Shutting down. LogFactory closing...
+2024-07-17 15:04:09.1480 Info LogFactory has been closed.
+2024-07-17 15:29:38.8585 Info Message Template Auto Format enabled
+2024-07-17 15:29:38.8799 Info Loading assembly: NLog.Mongo
+2024-07-17 15:29:38.9146 Info Adding target MongoTarget(Name=logfile)
+2024-07-17 15:29:38.9344 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-07-17 15:29:38.9458 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-07-17 15:29:39.1763 Info Shutdown() called. Logger closing...
+2024-07-17 15:29:39.1763 Info Closing old configuration.
+2024-07-17 15:29:39.1863 Info Logger has been closed down.
+2024-07-17 15:29:40.1398 Info AppDomain Shutting down. LogFactory closing...
+2024-07-17 15:29:40.1398 Info LogFactory has been closed.
+2024-07-17 15:30:21.3144 Info Message Template Auto Format enabled
+2024-07-17 15:30:21.3361 Info Loading assembly: NLog.Mongo
+2024-07-17 15:30:21.3719 Info Adding target MongoTarget(Name=logfile)
+2024-07-17 15:30:21.3926 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-07-17 15:30:21.4044 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-07-17 15:30:21.6397 Info Shutdown() called. Logger closing...
+2024-07-17 15:30:21.6397 Info Closing old configuration.
+2024-07-17 15:30:21.6497 Info Logger has been closed down.
+2024-07-17 15:30:23.0379 Info AppDomain Shutting down. LogFactory closing...
+2024-07-17 15:30:23.0379 Info LogFactory has been closed.
+2024-07-17 15:30:41.4764 Info Message Template Auto Format enabled
+2024-07-17 15:30:41.5173 Info Loading assembly: NLog.Mongo
+2024-07-17 15:30:41.5913 Info Adding target MongoTarget(Name=logfile)
+2024-07-17 15:30:41.6141 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-07-17 16:19:47.8525 Info Shutdown() called. Logger closing...
+2024-07-17 16:19:47.8525 Info Closing old configuration.
+2024-07-17 16:19:47.8611 Info Logger has been closed down.
+2024-07-17 16:19:47.9761 Info AppDomain Shutting down. LogFactory closing...
+2024-07-17 16:19:47.9805 Info LogFactory has been closed.
+2024-07-17 17:26:42.3093 Info Message Template Auto Format enabled
+2024-07-17 17:26:42.3322 Info Loading assembly: NLog.Mongo
+2024-07-17 17:26:42.3718 Info Adding target MongoTarget(Name=logfile)
+2024-07-17 17:26:42.3918 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-07-17 17:26:42.4042 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-07-17 17:26:42.6602 Info Shutdown() called. Logger closing...
+2024-07-17 17:26:42.6602 Info Closing old configuration.
+2024-07-17 17:26:42.6714 Info Logger has been closed down.
+2024-07-17 17:26:43.7710 Info AppDomain Shutting down. LogFactory closing...
+2024-07-17 17:26:43.7722 Info LogFactory has been closed.
+2024-09-16 14:41:43.9001 Info Message Template Auto Format enabled
+2024-09-16 14:41:43.9550 Info Loading assembly: NLog.Mongo
+2024-09-16 14:41:44.0453 Info Adding target MongoTarget(Name=logfile)
+2024-09-16 14:41:44.0804 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-16 14:41:44.1008 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-16 14:56:45.8440 Info Shutdown() called. Logger closing...
+2024-09-16 14:56:45.8440 Info Closing old configuration.
+2024-09-16 14:56:45.8556 Info Logger has been closed down.
+2024-09-16 14:56:45.9099 Info AppDomain Shutting down. LogFactory closing...
+2024-09-16 14:56:45.9099 Info LogFactory has been closed.
+2024-09-17 14:24:09.9472 Info Message Template Auto Format enabled
+2024-09-17 14:24:09.9799 Info Loading assembly: NLog.Mongo
+2024-09-17 14:24:10.0612 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:24:10.1035 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:24:10.1428 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:26:12.5803 Info Shutdown() called. Logger closing...
+2024-09-17 14:26:12.5803 Info Closing old configuration.
+2024-09-17 14:26:12.5921 Info Logger has been closed down.
+2024-09-17 14:26:12.6443 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:26:12.6443 Info LogFactory has been closed.
+2024-09-17 14:26:42.6543 Info Message Template Auto Format enabled
+2024-09-17 14:26:42.6769 Info Loading assembly: NLog.Mongo
+2024-09-17 14:26:42.7136 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:26:42.7357 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:26:42.7475 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:26:43.0032 Info Shutdown() called. Logger closing...
+2024-09-17 14:26:43.0032 Info Closing old configuration.
+2024-09-17 14:26:43.0133 Info Logger has been closed down.
+2024-09-17 14:26:43.9756 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:26:43.9756 Info LogFactory has been closed.
+2024-09-17 14:27:15.0265 Info Message Template Auto Format enabled
+2024-09-17 14:27:15.0609 Info Loading assembly: NLog.Mongo
+2024-09-17 14:27:15.1048 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:27:15.1252 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:27:15.1396 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:27:15.3702 Info Shutdown() called. Logger closing...
+2024-09-17 14:27:15.3702 Info Closing old configuration.
+2024-09-17 14:27:15.3779 Info Logger has been closed down.
+2024-09-17 14:27:16.5918 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:27:16.5918 Info LogFactory has been closed.
+2024-09-17 14:27:25.9452 Info Message Template Auto Format enabled
+2024-09-17 14:27:25.9954 Info Loading assembly: NLog.Mongo
+2024-09-17 14:27:26.0713 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:27:26.0939 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:27:26.1077 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:29:16.7081 Info Shutdown() called. Logger closing...
+2024-09-17 14:29:16.7081 Info Closing old configuration.
+2024-09-17 14:29:16.7232 Info Logger has been closed down.
+2024-09-17 14:29:16.8237 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:29:16.8288 Info LogFactory has been closed.
+2024-09-17 14:29:21.4568 Info Message Template Auto Format enabled
+2024-09-17 14:29:21.4867 Info Loading assembly: NLog.Mongo
+2024-09-17 14:29:21.5692 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:29:21.5981 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:29:21.6359 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:35:07.6132 Info Message Template Auto Format enabled
+2024-09-17 14:35:07.6355 Info Loading assembly: NLog.Mongo
+2024-09-17 14:35:07.6702 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:35:07.6903 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:35:07.7045 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:35:07.9516 Info Shutdown() called. Logger closing...
+2024-09-17 14:35:07.9516 Info Closing old configuration.
+2024-09-17 14:35:07.9619 Info Logger has been closed down.
+2024-09-17 14:35:08.9505 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:35:08.9505 Info LogFactory has been closed.
+2024-09-17 14:35:33.5263 Info Message Template Auto Format enabled
+2024-09-17 14:35:33.5589 Info Loading assembly: NLog.Mongo
+2024-09-17 14:35:33.6066 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:35:33.6258 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:35:33.6390 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:35:33.8671 Info Shutdown() called. Logger closing...
+2024-09-17 14:35:33.8671 Info Closing old configuration.
+2024-09-17 14:35:33.8776 Info Logger has been closed down.
+2024-09-17 14:35:35.3338 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:35:35.3348 Info LogFactory has been closed.
+2024-09-17 14:36:04.7005 Info Message Template Auto Format enabled
+2024-09-17 14:36:04.7273 Info Loading assembly: NLog.Mongo
+2024-09-17 14:36:04.7885 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:36:04.8091 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:36:04.8236 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:37:30.2337 Info Shutdown() called. Logger closing...
+2024-09-17 14:37:30.2337 Info Closing old configuration.
+2024-09-17 14:37:30.2420 Info Logger has been closed down.
+2024-09-17 14:37:30.2837 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:37:30.2837 Info LogFactory has been closed.
+2024-09-17 14:37:32.7935 Info Message Template Auto Format enabled
+2024-09-17 14:37:32.8200 Info Loading assembly: NLog.Mongo
+2024-09-17 14:37:32.9248 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:37:32.9608 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/home/miguel/Área de Trabalho/Deps_CleanArchitecture/Deps_CleanArchitecture.Web/bin/Debug/net6.0/nlog.config
+2024-09-17 14:37:32.9887 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
+   at NLog.Mongo.MongoTarget.InitializeTarget()
+   at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-17 14:47:25.1366 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 14:47:25.1366 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 14:47:25.1366 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 14:47:25.1366 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 14:47:25.7132 Info Shutdown() called. Logger closing...
+2024-09-17 14:47:25.7132 Info Closing old configuration.
+2024-09-17 14:47:25.7259 Info Logger has been closed down.
+2024-09-17 14:47:25.7670 Info AppDomain Shutting down. LogFactory closing...
+2024-09-17 14:47:25.7670 Info LogFactory has been closed.
+2024-09-17 14:49:30.7508 Info Message Template Auto Format enabled
+2024-09-17 14:49:30.7871 Info Loading assembly: NLog.Mongo
+2024-09-17 14:49:30.8311 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 14:49:30.8531 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/app/bin/Debug/net6.0/nlog.config
+2024-09-17 14:49:32.0786 Info Connecting to MongoDB collection geral in database logs
+2024-09-17 14:50:02.1730 Error Error when writing to MongoDB System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/host.docker.internal:27017" }", EndPoint: "Unspecified/host.docker.internal:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (111): Connection refused 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2024-09-17T17:50:02.1554500Z", LastUpdateTimestamp: "2024-09-17T17:50:02.1554505Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+2024-09-17 14:50:02.1785 Error MongoTarget(Name=logfile): Exception in Write Exception: System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/host.docker.internal:27017" }", EndPoint: "Unspecified/host.docker.internal:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (111): Connection refused 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2024-09-17T17:50:02.1554500Z", LastUpdateTimestamp: "2024-09-17T17:50:02.1554505Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+   at NLog.Targets.Target.Write(AsyncLogEventInfo logEvent)
+2024-09-17 17:30:24.2409 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 17:30:24.2409 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 17:30:24.2409 Info Configuration file change detected! Reloading in 1000ms...
+2024-09-17 17:30:25.2410 Info Reloading configuration...
+2024-09-17 17:30:25.2474 Info Loading NLog config from XML file: /app/bin/Debug/net6.0/nlog.config
+2024-09-17 17:30:25.2474 Info Message Template Auto Format enabled
+2024-09-17 17:30:25.2474 Info Loading assembly: NLog.Mongo
+2024-09-17 17:30:25.2501 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 17:30:25.2501 Info Closing old configuration.
+2024-09-17 17:30:25.2629 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/app/bin/Debug/net6.0/nlog.config
+2024-09-17 17:30:26.5512 Info Message Template Auto Format enabled
+2024-09-17 17:30:26.5967 Info Loading assembly: NLog.Mongo
+2024-09-17 17:30:26.6722 Info Adding target MongoTarget(Name=logfile)
+2024-09-17 17:30:26.7129 Info Validating config: TargetNames=logfile, ConfigItems=17, FilePath=/app/bin/Debug/net6.0/nlog.config
+2024-09-17 17:30:27.8170 Info Connecting to MongoDB collection geral in database logs
+2024-09-17 17:30:57.9039 Error Error when writing to MongoDB System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/host.docker.internal:27017" }", EndPoint: "Unspecified/host.docker.internal:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (111): Connection refused 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2024-09-17T20:30:57.8914874Z", LastUpdateTimestamp: "2024-09-17T20:30:57.8914882Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+2024-09-17 17:30:57.9039 Error MongoTarget(Name=logfile): Exception in Write Exception: System.TimeoutException: A timeout occurred after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 }, OperationsCountServerSelector }. Client view of cluster state is { ClusterId : "1", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/host.docker.internal:27017" }", EndPoint: "Unspecified/host.docker.internal:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (111): Connection refused 127.0.0.1:27017
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.Connect(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStream(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelper(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.Open(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnection(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.Heartbeat(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2024-09-17T20:30:57.8914874Z", LastUpdateTimestamp: "2024-09-17T20:30:57.8914882Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChanged(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServer(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterServerSelection(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupported(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.StartImplicitSession(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSession[TResult](Func`2 func, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWrite(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.<>c__DisplayClass68_0.<InsertOne>b__0(IEnumerable`1 requests, BulkWriteOptions bulkWriteOptions)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, Action`2 bulkWrite)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOne(TDocument document, InsertOneOptions options, CancellationToken cancellationToken)
+   at NLog.Mongo.MongoTarget.Write(LogEventInfo logEvent)
+   at NLog.Targets.Target.Write(AsyncLogEventInfo logEvent)
