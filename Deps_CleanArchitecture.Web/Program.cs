@@ -50,21 +50,21 @@ try
                               builder.AllowAnyHeader();
                           });
     });
+    
+    builder.Services.AddControllers();
 
-    builder.Services.AddControllers().AddNewtonsoftJson();
+    // builder.Services.AddApiVersioning(setup =>
+    // {
+    //     setup.DefaultApiVersion = new ApiVersion(1, 0);
+    //     setup.ReportApiVersions = true;
+    //     setup.ApiVersionReader = new UrlSegmentApiVersionReader();
+    // });
 
-    builder.Services.AddApiVersioning(setup =>
-    {
-        setup.DefaultApiVersion = new ApiVersion(1, 0);
-        setup.ReportApiVersions = true;
-        setup.ApiVersionReader = new UrlSegmentApiVersionReader();
-    });
-
-    builder.Services.AddVersionedApiExplorer(setup =>
-    {
-        setup.GroupNameFormat = "'v'VVV";
-        setup.SubstituteApiVersionInUrl = true;
-    });
+    // builder.Services.AddVersionedApiExplorer(setup =>
+    // {
+    //     setup.GroupNameFormat = "'v'VVV";
+    //     setup.SubstituteApiVersionInUrl = true;
+    // });
 
     builder.Services.AddSwaggerGen(c =>
     {
@@ -74,6 +74,7 @@ try
             Description = "Token JWT. Exemplo: \"Authorization: Bearer {token}\"",
             Name = "Authorization",
             In = ParameterLocation.Header,
+            BearerFormat = "JWT",
             Type = SecuritySchemeType.ApiKey
         });
 
@@ -86,10 +87,7 @@ try
                 {
                     Type = ReferenceType.SecurityScheme,
                     Id = "Bearer"
-                },
-                Scheme = "oauth2", //VERIFICAR, TROCAR PELO MEU?
-                Name = "Bearer",
-                In = ParameterLocation.Header
+                }
             },
             new List<string>()
         }
@@ -97,8 +95,8 @@ try
 
     });
 
-    builder.Services.ConfigureOptions<ConfigureSwaggerOptions>(); //CONFIGURE SWAGGER
-    
+    //builder.Services.ConfigureOptions<ConfigureSwaggerOptions>(); //CONFIGURE SWAGGER
+
     builder.Services.ConfigureJwt();
 
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
@@ -132,22 +130,19 @@ try
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
-        foreach (var description in provider.ApiVersionDescriptions)
-        {
-            c.SwaggerEndpoint(
-                $"/swagger/{description.GroupName}/swagger.json",
-                description.GroupName.ToUpperInvariant());
-        }
+        // var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+        // foreach (var description in provider.ApiVersionDescriptions)
+        // {
+        //     c.SwaggerEndpoint(
+        //         $"/swagger/{description.GroupName}/swagger.json",
+        //         description.GroupName.ToUpperInvariant());
+        // }
 
         // Esconder schema na documentação
         c.DefaultModelsExpandDepth(-1);
     });
 
-    app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapControllers();
-    });
+    app.MapControllers();
 
     using (var scope = app.Services.CreateScope())
     {
