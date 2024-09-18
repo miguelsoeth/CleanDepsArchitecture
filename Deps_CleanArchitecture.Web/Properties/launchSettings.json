@@ -22,10 +22,7 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "POSTGRES_CONNECTION": "Server=localhost;Port=5432;Database=Deps_CleanArchitecture;User Id=postgres;Password=postgres;Pooling=true;TimeZone=America/Sao_Paulo",
-        "JWT_KEY": "jfRVHqN7HJExsDokHJRA85tt4QexDeWT",
-        "JWT_ISSUER": "localhost:5151",
-        "JWT_AUDIENCE": "localhost:4200"
+        "POSTGRES_CONNECTION": "Server=localhost;Port=5432;Database=Deps_CleanArchitecture;User Id=postgres;Password=postgres;Pooling=true;TimeZone=America/Sao_Paulo"
       },
       "applicationUrl": "http://localhost:57679"
     }
