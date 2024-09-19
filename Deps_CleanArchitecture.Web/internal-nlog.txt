@@ -1511,3 +1511,8 @@
 2024-09-18 17:06:08.0338 Warn MongoTarget(Name=logfile): Exception in Initialize Exception: NLog.NLogConfigurationException: Can not resolve MongoDB ConnectionString. Please make sure the ConnectionString property is set.
    at NLog.Mongo.MongoTarget.InitializeTarget()
    at NLog.Targets.Target.Initialize(LoggingConfiguration configuration)
+2024-09-18 18:32:54.3776 Info Shutdown() called. Logger closing...
+2024-09-18 18:32:54.3776 Info Closing old configuration.
+2024-09-18 18:32:54.3894 Info Logger has been closed down.
+2024-09-18 18:32:54.3894 Info AppDomain Shutting down. LogFactory closing...
+2024-09-18 18:32:54.3894 Info LogFactory has been closed.

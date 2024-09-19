@@ -3,11 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Deps_CleanArchitecture.Core;
 using Deps_CleanArchitecture.Infrastructure;
 using Deps_CleanArchitecture.Infrastructure.Data;
-using Deps_CleanArchitecture.Web.Configuration;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,7 +33,8 @@ try
         options.MaxAge = TimeSpan.FromDays(30);
     });
 
-    builder.Services.AddDbContext(); //START CONFIGS INFRA
+    builder.Services.AddDbContext(); //START CONFIGS BANCOS INFRA
+    builder.Services.ConfigureJwt();
 
     const string CORS_POLICY = "CorsPolicy";
     builder.Services.AddCors(options =>
@@ -52,20 +49,7 @@ try
     });
     
     builder.Services.AddControllers();
-
-    // builder.Services.AddApiVersioning(setup =>
-    // {
-    //     setup.DefaultApiVersion = new ApiVersion(1, 0);
-    //     setup.ReportApiVersions = true;
-    //     setup.ApiVersionReader = new UrlSegmentApiVersionReader();
-    // });
-
-    // builder.Services.AddVersionedApiExplorer(setup =>
-    // {
-    //     setup.GroupNameFormat = "'v'VVV";
-    //     setup.SubstituteApiVersionInUrl = true;
-    // });
-
+    
     builder.Services.AddSwaggerGen(c =>
     {
         c.EnableAnnotations();
@@ -95,15 +79,10 @@ try
 
     });
 
-    //builder.Services.ConfigureOptions<ConfigureSwaggerOptions>(); //CONFIGURE SWAGGER
-
-    builder.Services.ConfigureJwt();
-
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     {
-        containerBuilder.RegisterModule(new DefaultCoreModule()); //CONFIGURE CORE
+        containerBuilder.RegisterModule(new DefaultCoreModule());
         containerBuilder.RegisterModule(new DefaultInfrastructureModule(builder.Environment.EnvironmentName == "Development"));
-        //REGISTROS DO INFRA /\
     });
 
 
@@ -130,41 +109,36 @@ try
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        // var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
-        // foreach (var description in provider.ApiVersionDescriptions)
-        // {
-        //     c.SwaggerEndpoint(
-        //         $"/swagger/{description.GroupName}/swagger.json",
-        //         description.GroupName.ToUpperInvariant());
-        // }
-
-        // Esconder schema na documentação
         c.DefaultModelsExpandDepth(-1);
     });
 
     app.MapControllers();
 
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
+    #region Seed na DB ao iniciar
 
-        try
+        using (var scope = app.Services.CreateScope())
         {
-            var context = services.GetRequiredService<AppDbContext>();
-            context.Database.Migrate();
-            context.Database.EnsureCreated();
+            var services = scope.ServiceProvider;
+
+            try
+            {
+                var context = services.GetRequiredService<AppDbContext>();
+                context.Database.Migrate();
+                context.Database.EnsureCreated();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Ocorreu um erro ao dar seed na DB.");
+            }
         }
-        catch (Exception ex)
-        {
-            logger.Error(ex, "An error occurred seeding the DB.");
-        }
-    }
+
+    #endregion
 
     app.Run();
 }
 catch (Exception exception)
 {
-    logger.Error(exception, "Stopped program because of exception");
+    logger.Error(exception, "Programa finalizado devido a uma exceção!");
     throw;
 }
 finally
